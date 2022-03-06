@@ -1,0 +1,542 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Righteous&family=Sarala:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+html {
+    font-size: 63.5%;
+}
+
+body {
+    color: white;
+    background-color: #1B1B25;
+    width: 100%;
+}
+
+header {  
+    display: flex;
+    justify-content: flex-end;
+    padding: 2.7rem;
+    border-bottom: 0.4px solid white;
+}
+
+.nav-header-itens {
+    font-family: 'Sarala', sans-serif;
+    color: #FFF2E7;
+    font-weight: 400;
+    font-size: 1.8rem;
+    gap: 30px;
+    margin-right: 40px;
+}
+
+.container {
+    margin-bottom: 40px;
+    padding-bottom: 35px;
+    margin-left: 10px;
+    
+}
+
+.welcome {
+    text-align: center;
+    padding: 40px;
+    font-weight: 400;
+    padding-bottom: 35px;
+}
+
+.welcome-first-text {
+    font-size: 5rem;
+    text-shadow: 1px 1px 1px rgb(98, 0, 255);
+    font-style: italic;
+    font-family: 'Sarala', sans-serif;
+    text-transform: uppercase;
+}
+
+.welcome-second-text {
+    font-size: 1.7rem;
+    color: white;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    width: 0 auto;
+    
+}
+
+.profile aside {
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    
+    display: flex;  
+    justify-content: space-around;
+}
+
+.description-text {
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    font-weight: 100;
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 800px;
+}
+
+#photo {
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+    border: black solid 3px;
+    display: flex;
+    position: relative;
+    /* right: 40px; */
+    /* margin-left: 1.3rem; */
+    box-shadow: 3px 1px 5px 5px #bababa42;
+}
+
+.skill {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.skill-topic-main {
+    border-top: white solid 0.4px;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 20px;   
+    gap: 50px;
+}
+
+.skill-topic {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.topic-skill-text {
+    font-size: 2.1rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.itens-skill {
+    margin-top: 5px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 100;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#mypicture{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    
+}
+.social-links {
+    /* width: 500px; */
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 50px;
+    
+    
+}
+
+.social-links a{
+    font-family: sans-serif;
+    align-items: baseline;
+    font-size: 1.4rem;
+}
+
+.midia-social-link {
+    display: flex;
+    gap: 10px;
+}
+
+footer {
+    margin-top: 5%;
+    text-align: center;
+    justify-items: center;
+    font-style: italic;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+footer h2 {
+    padding: 10px;
+    font-size: 18pt;
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;   
+}
+
+footer span {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: rgb(155, 155, 155);
+    font-family: 'Merienda', cursive;
+}
+
+.nav-header-itens:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);  
+    color: white;
+}
+
+@media (max-width: 966px) {
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .welcome {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .description-text {
+        font-size: 1.8em;
+        text-align: justify;
+        margin-left: 5rem;
+    }
+
+    #photo {
+        height: 150px;
+        width: 150px;
+        border-radius: 15%;
+        position: relative;
+    }
+
+    .skill {  
+        display: flex;
+        flex-direction: row;
+    }
+
+    .skill-topic-main {
+        display: flex;
+        padding: 15px;
+        gap: 30px;
+        justify-content: inherit;
+
+        -ms-box-orient: horizontal;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .skill-topic {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .topic-skill-text {
+        font-size: 1.9rem;
+        font-style: italic;
+        font-weight: 600;
+    }
+    
+    .itens-skill {
+        margin-top: 5px;
+        font-family: 'Sarala', sans-serif;
+        font-weight: 100;
+        line-height: 1.5;
+        font-size: 1.6rem;
+        justify-content: center;
+        align-items: center;
+    }  
+}
+
+@media (max-width:690px) {
+    
+    html {
+        font-size: 55%;
+    }
+
+    .description-text {
+        padding: 12px;
+        font-size: 1.8rem;
+        text-align: justify;
+        margin-left: 5rem;
+        line-break: normal;
+    }
+    
+    footer h2 {
+        font-size: 15pt;
+    }
+
+    .side-bar {
+        width: 30px;
+        height: 100vh;
+        background:linear-gradient(#0f12138a, #a6add3);
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+    
+    .social-links {
+        width: 25px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        column-gap: 50px;
+    }
+    
+    .social-links img {
+        margin: 5px auto;
+        cursor: pointer;
+    }
+    
+}
+
+@media (max-width:420px) {
+    html {
+        justify-content: center;
+    }
+
+    #photo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        justify-content: center;       
+    }
+
+    .description {
+        justify-content: center;    
+    }
+
+    .description-text {
+        font-size: 1.6rem;
+        text-align: justify;
+        padding: 6px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .skill {  
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .skill-topic-main {
+        border-top: white solid 0.1px;    
+        display: flex;
+        padding: 2px;
+        gap: 5px;
+        justify-content: center;
+    }
+    
+    .skill-topic {
+        column-gap: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        text-align: start;
+        clear: right;
+    }
+    
+    .topic-skill-text {
+        font-size: 2.7rem;
+        font-style: italic;
+        font-weight: 600;
+    }
+    
+    .itens-skill {
+        margin-top: 5px;
+        font-family: 'Sarala', sans-serif;
+        font-weight: 100;
+        line-height: 1.1;
+        font-size: 1.6rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .side-bar {
+        width: 30px;
+        height: 100vh;
+        background:linear-gradient(#0f12138a, #a6add3);
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+    
+    .social-links {
+        width: 25px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        column-gap: 50px;
+    }
+    
+    .social-links img {
+        margin: 5px auto;
+        cursor: pointer;
+    }
+}
+
+@media(max-width:320px) {
+    
+    .profile {
+        -ms-box-orient: horizontal;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+        width: 250px;
+    }
+
+    .description {
+        margin-left: 0;
+        justify-content: center;
+        width: 250px;
+    }
+
+    .description-text {
+    text-align: center;
+    }
+
+    .description-text {
+        text-align: justify;
+        justify-content: center;
+    }
+
+    .container .profile aside {
+        margin: 0 auto;
+    }
+
+    #photo {
+        margin: 0 auto;
+        position:relative;
+        display: flex;
+        position: relative;
+        right: auto;
+    }
+
+    .skill {  
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .skill-topic-main {
+        border-top: white solid 0.1px;    
+        display: flex;
+        padding: 2px;
+        gap: 30px;
+        justify-content: baseline;
+        align-items: center;
+    }
+
+    .skill-topic {
+        column-gap: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        text-align: start;
+        text-align: center;
+    }
+
+    .topic-skill-text {
+        font-size: 2.5rem;
+        font-style: italic;
+        font-weight: 600;
+    }
+
+    .itens-skill {    
+        font-family: 'Sarala', sans-serif;
+        font-weight: 100;
+        line-height: 1.2;
+        font-size: 1.6rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        margin: 0;
+        padding: 0;
+        width: 90%;
+    }
+    
+    footer h2{      
+        font-size: 2rem;      
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    footer div {
+        padding: 15px;
+    }
+}
