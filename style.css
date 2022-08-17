@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Righteous&family=Sarala:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -23,14 +24,18 @@ html {
 body {
     color: white;
     background-color: #1B1B25;
-    width: 100%;
 }
 
 header {  
-    display: flex;
-    justify-content: flex-end;
     padding: 2.7rem;
     /* border-bottom: 0.4px solid white; */
+}
+
+.nav-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+
 }
 
 .nav-header-itens {
@@ -38,15 +43,14 @@ header {
     color: #FFF2E7;
     font-weight: 400;
     font-size: 1.8rem;
-    gap: 30px;
-    margin-right: 40px;
     border-bottom: 0.4px solid white;
 }
 
-.containerr {
-    margin-bottom: 40px;
-    padding-bottom: 35px;
-    margin-left: 10px; 
+.nav-header-itens:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);  
+    color: white;
 }
 
 .welcome {
@@ -57,7 +61,7 @@ header {
 }
 
 .welcome-first-text {
-    font-size: 5rem;
+    font-size: 7rem;
     text-shadow: 1px 1px 1px rgb(98, 0, 255);
     font-style: italic;
     font-family: 'Sarala', sans-serif;
@@ -66,7 +70,7 @@ header {
 }
 
 .welcome-second-text {
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: white;
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
@@ -77,7 +81,23 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: baseline;
-    width: 0 auto;
+    height: 90vh;
+}
+
+#mypicture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: baseline;   */
+}
+
+#photo {
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    border: black solid 3px;
+    display: flex;
+    box-shadow: 3px 1px 5px 5px #bababa42;
 }
 
 .profile aside {
@@ -88,82 +108,80 @@ header {
 .description {
     display: flex;  
     justify-content: space-around;
+    margin-top: 10px;
 }
 
 .description-text {
     text-align: center;
     font-size: 1.8rem;
-    line-height: 1.3;
-    font-weight: 100;
+    line-height: 1.4;
+    font-weight: 200;
     text-align: center;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    width: 800px;
+    max-width: 800px;
+    margin: 15px 0 5px 0;
 }
 
-#photo {
-    height: 250px;
-    width: 250px;
-    border-radius: 20px;
-    border: black solid 3px;
-    display: flex;
-    position: relative;
-    /* right: 40px; */
-    /* margin-left: 1.3rem; */
-    box-shadow: 3px 1px 5px 5px #bababa42;
+.habilits {
+    margin: 5px auto;
+    max-width: 850px;
+    max-height: 400px;
 }
 
-.skill {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    justify-content: center;
-    align-items: baseline;
-}
-
-.skill-topic-main {
-    border-top: white solid 0.4px;
-    margin-bottom: 20px;
-    display: flex;
-    padding: 20px;   
-    gap: 50px;
-}
-
-.skill-topic {
-    display: flex;
-    flex-direction: column;
+.habilits h4 {
+    font-size: 5em;
+    font-weight: bold;
+    font-family: 'MuseoModerno', cursive;
     padding: 10px;
 }
 
-.topic-skill-text {
-    font-size: 2.1rem;
-    font-style: italic;
-    font-weight: 600;
-}
-
-.itens-skill {
-    margin-top: 5px;
-    font-family: 'Sarala', sans-serif;
-    font-weight: 100;
-    line-height: 1.5;
-    font-size: 1.6rem;
-    justify-content: center;
-    align-items: center;
-}
-
-#mypicture {
+.habilits-icon {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    /* align-items: baseline;   */
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.habilits-logo {
+    height: 130px;
+    width: 130px;
+}
+
+.midia-social-link {
+    display: flex;
+    gap: 10px;
+}
+
+img:hover {
+    transform: scale(1.1); 
+}
+
+footer {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    line-height: 1.5;
+    min-height: 200px;
+    min-width: 100vw;
+    max-width: 650px;
+}
+
+footer h2 {
+    padding: 10px;
+    font-size: 18pt;
+    font-style: italic;
+    font-weight: bold;   
+    font-family: 'Nunito', sans-serif;
 }
 
 .social-links {
     padding: 10px;
-    margin-top: 20px;
-    display: inline-block;
-    align-items: center;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: 5px;
 }
 
@@ -177,40 +195,6 @@ header {
     gap: 50px;
 }
 
-.midia-social-link {
-    display: flex;
-    gap: 10px;
-}
-  
-img:hover {
-    transform: scale(1.1); 
-}
-
-footer {
-    margin-top: 3%;
-    text-align: center;
-    justify-items: center;
-    font-style: italic;
-    padding: 10px;
-    margin: 0 auto;
-    line-height: 1.5;
-    width: 500px;
-}
-
-footer div {
-    justify-content: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-footer h2 {
-    padding: 10px;
-    font-size: 18pt;
-    font-family: 'Nunito', sans-serif;
-    font-style: italic;   
-}
-
 .github-project {
     font-size: 1.7rem;
     font-weight: bold;
@@ -220,14 +204,6 @@ footer h2 {
 
 #github-project-link {
     border-bottom: 1px solid white;
-
-}
-
-.nav-header-itens:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);  
-    color: white;
 }
 
 .reference {
@@ -237,331 +213,58 @@ footer h2 {
     font-family: 'Merienda', cursive;
 }
 
-@media (max-width: 966px) {
-
-    header {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .profile {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    .welcome {
-        justify-content: center;
-        text-align: center;
+@media (max-width:770px) {
+    html {
+        font-size: 50.5%;
     }
 
     .description-text {
-        font-size: 1.8em;
-        text-align: justify;
-        margin-left: 5rem;
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+    .habilits {
+        margin-bottom: 10%;
+    }
+    
+    .habilits-logo {
+        height: 75px;
+        width: 75px;
     }
 
-    #mypicture{
-        display: flex;
-        flex-direction: column;
+    .github-project {
+        font-size: 2rem;
     }
+}
 
+@media (max-width:400px) {
+    .welcome-first-text {
+        font-size: 4rem;
+    }
+    
     #photo {
         height: 150px;
         width: 150px;
-        border-radius: 15%;
-        position: relative;
-    }
-
-    .skill {  
-        display: flex;
-        flex-direction: row;
-    }
-
-    .skill-topic-main {
-        display: flex;
-        padding: 15px;
-        gap: 30px;
-        justify-content: inherit;
-
-        -ms-box-orient: horizontal;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        position: relative;
-    }
-
-    .skill-topic {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
     }
     
-    .topic-skill-text {
-        font-size: 1.9rem;
-        font-style: italic;
-        font-weight: 600;
-    }
-    
-    .itens-skill {
-        margin-top: 5px;
-        font-family: 'Sarala', sans-serif;
-        font-weight: 100;
-        line-height: 1.5;
-        font-size: 1.6rem;
-        justify-content: center;
-        align-items: center;
-    }  
-}
-
-@media (max-width:690px) {
-    
-    html {
-        font-size: 55%;
-    }
-
     .description-text {
-        padding: 12px;
         font-size: 1.8rem;
-        text-align: justify;
-        margin-left: 5rem;
-        line-break: normal;
     }
     
-    footer h2 {
-        font-size: 15pt;
-    }
-
-    .side-bar {
-        width: 30px;
-        height: 100vh;
-        background:linear-gradient(#0f12138a, #a6add3);
-        position: fixed;
-        right: 0;
-        top: 0;
+    .habilits {
+        margin-bottom: 10%;
     }
     
-    .social-links {
-        width: 25px;
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        column-gap: 50px;
-    }
-    
-    .social-links img {
-        margin: 5px auto;
-        cursor: pointer;
-    }
-    
-}
-
-@media (max-width:420px) {
-    html {
-        justify-content: center;
-    }
-
-    #photo {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        position: relative;
-    }
-
-    .profile {
-        display: flex;
-        flex-direction: row;
-        padding: 0;
-        justify-content: center;       
-    }
-
-    .description {
-        justify-content: center;    
-    }
-
-    .description-text {
-        font-size: 1.6rem;
-        text-align: justify;
-        padding: 6px;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .skill {  
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .skill-topic-main {
-        border-top: white solid 0.1px;    
-        display: flex;
-        padding: 2px;
-        gap: 5px;
-        justify-content: center;
-    }
-    
-    .skill-topic {
-        column-gap: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px;
-        text-align: start;
-        clear: right;
-    }
-    
-    .topic-skill-text {
-        font-size: 2.7rem;
-        font-style: italic;
-        font-weight: 600;
-    }
-    
-    .itens-skill {
-        margin-top: 5px;
-        font-family: 'Sarala', sans-serif;
-        font-weight: 100;
-        line-height: 1.1;
-        font-size: 1.6rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .side-bar {
-        width: 30px;
-        height: 100vh;
-        background:linear-gradient(#0f12138a, #a6add3);
-        position: fixed;
-        right: 0;
-        top: 0;
-    }
-    
-    .social-links {
-        width: 25px;
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        column-gap: 50px;
-    }
-    
-    .social-links img {
-        margin: 5px auto;
-        cursor: pointer;
-    }
-}
-
-@media(max-width:320px) {
-    
-    .profile {
-        -ms-box-orient: horizontal;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
+    .habilits h4 {
+        font-size: 3rem;
         
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        margin: 0;
-        padding: 0;
-        width: 250px;
-    }
-
-    .description {
-        margin-left: 0;
-        justify-content: center;
-        width: 250px;
-    }
-
-    .description-text {
-    text-align: center;
-    }
-
-    .description-text {
-        text-align: justify;
-        justify-content: center;
-    }
-
-    .containerr .profile aside {
-        margin: 0 auto;
-    }
-
-    #photo {
-        margin: 0 auto;
-        position:relative;
-        display: flex;
-        position: relative;
-        right: auto;
-    }
-
-    .skill {  
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 30px;
-        align-items: center;
-    }
-
-    .skill-topic-main {
-        border-top: white solid 0.1px;    
-        display: flex;
-        padding: 2px;
-        gap: 30px;
-        justify-content: baseline;
-        align-items: center;
-    }
-
-    .skill-topic {
-        column-gap: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px;
-        text-align: start;
-        text-align: center;
-    }
-
-    .topic-skill-text {
-        font-size: 2.5rem;
-        font-style: italic;
-        font-weight: 600;
-    }
-
-    .itens-skill {    
-        font-family: 'Sarala', sans-serif;
-        font-weight: 100;
-        line-height: 1.2;
-        font-size: 1.6rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    footer {
-        margin: 0;
-        padding: 0;
-        width: 90%;
     }
     
-    footer h2{      
-        font-size: 2rem;      
-        text-align: center;
-        margin: 0;
-        padding: 0;
+    .habilits-logo {
+        height: 60px;
+        width: 60px;
     }
 
-    footer div {
-        padding: 15px;
+    footer h2 {
+        font-size: 2rem;
     }
 }
