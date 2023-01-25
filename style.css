@@ -191,10 +191,15 @@ footer h2 {
     font-family: sans-serif;
     display: inline;
     align-items: center;
-    font-size: 1.4rem;
-    top: calc(50% - 12px);
+    
+    /* top: calc(50% - 12px); */
     padding: 10px;
     gap: 50px;
+}
+
+.social-links a img {
+    width: 25px;
+    height: 25px;
 }
 
 .github-project {
