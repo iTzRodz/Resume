@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Righteous&family=Sarala:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
     font-family: sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -13,12 +18,12 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: white;
-}
+
 
 html {
     font-size: 63.5%;
+    max-width: 80vw;
+    margin: 0 auto;
 }
 
 body {
@@ -28,14 +33,17 @@ body {
 
 header {  
     padding: 2.7rem;
-    /* border-bottom: 0.4px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4rem auto;
 }
 
 .nav-header {
     display: flex;
     justify-content: flex-end;
     gap: 30px;
-
+    align-items: center;
 }
 
 .nav-header-itens {
@@ -43,14 +51,11 @@ header {
     color: #FFF2E7;
     font-weight: 400;
     font-size: 1.8rem;
-    border-bottom: 0.4px solid white;
+    border-color: transparent;
 }
 
 .nav-header-itens:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);  
-    color: white;
+    border-bottom: #ffffff98 2px solid;
 }
 
 .welcome {
@@ -78,26 +83,17 @@ header {
 
 .profile {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: baseline;
-    height: 90vh;
-}
-
-#mypicture {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    /* align-items: baseline;   */
+    height: 60vh;
+    gap: 10rem;
+    margin: 0 auto;
 }
 
 #photo {
-    height: 220px;
-    width: 220px;
-    border-radius: 20px;
-    border: black solid 3px;
-    display: flex;
-    box-shadow: 3px 1px 5px 5px #bababa42;
+    height: 30.5rem;
+    width: 30.5rem;
+    border-radius: 50%;
 }
 
 .profile aside {
@@ -106,28 +102,27 @@ header {
 }
 
 .description {
-    display: flex;  
-    justify-content: space-around;
     margin-top: 10px;
+    border-left: #fff 1px solid;
+    max-width: 30vw;
 }
 
 .description-text {
-    text-align: center;
+    text-align: left;
     font-size: 1.8rem;
     line-height: 1.4;
-    font-weight: 200;
-    text-align: center;
-    padding: 10px;
+    font-weight: 300;
+    text-align: justify;
+    padding: 3rem;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    max-width: 800px;
     margin: 15px 0 5px 0;
 }
 
 .habilits {
     margin: 5px auto;
+    margin-top: 10%;
     max-width: 850px;
-    max-height: 400px;
 }
 
 .habilits h4 {
@@ -143,12 +138,14 @@ header {
     margin-top: 10px;
     padding: 5px;
     padding: 50px;
+    
+    box-shadow: 3px 1px 5px 5px #bababa42;
+    border-radius: 2rem;
 }
 
 .habilits-logo {
-    height: 120px;
-    width: 120px;
-    border: solid 0.5px #fff;
+    height: 8.5rem;
+    width: 8.5rem;
     padding: 10px;
 }
 
@@ -157,8 +154,61 @@ header {
     gap: 10px;
 }
 
-img:hover {
+.habilits-logo:hover {
     transform: scale(1.1); 
+}
+
+.work-experience {
+    margin: 4rem auto;
+    padding: 1rem;
+    max-width: 65vw;
+}
+
+.work-experience > div{
+    margin-left: 2%;
+    margin-top: 2rem;
+}
+
+.work-experience > h1 {
+    font-weight: bold;
+    font-size: 4.3rem;
+    font-family: "Inter", sans-serif;
+
+    font-style: italic;
+}
+
+.work-experience  > div > header {
+    display: flex;
+    justify-content: start;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.work-experience-title  {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.work-experience-company  {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-left: 0.5%;
+    opacity: 0.60;
+}
+.period-work-experience {
+    display: block;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.description-work-experience {
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: justify;
 }
 
 footer {
@@ -192,7 +242,6 @@ footer h2 {
     display: inline;
     align-items: center;
     
-    /* top: calc(50% - 12px); */
     padding: 10px;
     gap: 50px;
 }
@@ -220,22 +269,75 @@ footer h2 {
     font-family: 'Merienda', cursive;
 }
 
-@media (max-width:770px) {
-    html {
-        font-size: 50.5%;
+@media (min-width: 768px) and (max-width: 1024px) {
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .description {
+        max-width: none;
     }
 
     .description-text {
-        font-size: 2rem;
-        line-height: 1.4;
+        padding: 1rem;
     }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        height: 60vh;
+        margin-bottom: 7.25rem;
+        gap: 0;
+    }
+
+    .description {
+        border: none;
+    }
+
+    #photo {
+        height: 25rem;
+        width: 25rem;
+    }
+}
+@media (min-width: 415px) and (max-width: 767px) {
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .description {
+        border: none;
+    }
+
+    .nav-header {
+        border: none;
+    }
+
+    .description-text {
+        line-height: 1.4;
+        padding: 1rem;
+    }
+
+    #photo {
+        height: 20rem;
+        width: 20rem;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 7.25rem;
+        gap: 0;
+    }
+
     .habilits {
         margin-bottom: 10%;
     }
     
-    .habilits-logo {
-        height: 75px;
-        width: 75px;
+    .description {
+        max-width: none;
+        border: inherit;
     }
 
     .github-project {
@@ -243,34 +345,93 @@ footer h2 {
     }
 }
 
-@media (max-width:400px) {
+@media (max-width:414px) {
+  
+    header {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .nav-header {
+        border: none;
+        gap: 1rem;
+    }
+
+    .nav-header-itens {
+        font-size: 1.5rem;
+    }
     .welcome-first-text {
-        font-size: 4rem;
+        font-size: 4.3rem;
     }
     
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
     #photo {
         height: 150px;
         width: 150px;
     }
     
-    .description-text {
-        font-size: 1.8rem;
+    .description {
+        max-width: inherit;
+        border: none;
     }
-    
+
+    .description-text {
+        font-size: 1.6rem;
+        padding: 0;
+    }
+
     .habilits {
         margin-bottom: 10%;
     }
     
     .habilits h4 {
+        text-align: center;
         font-size: 3rem;
-        
+        width: 100%;
+        margin: 0;
     }
     
-    .habilits-logo {
-        height: 60px;
-        width: 60px;
+    .work-experience {
+        margin: 5px auto;
+        padding: 0.5rem;
+        max-width: 100%;
     }
 
+    .work-experience h1 {
+        padding: 10px;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .work-experience-container > header {
+        justify-content: start;
+        align-items: start;
+    }
+    .work-experience-title {
+        text-align: left;
+    }
+
+    .description-work-experience {
+        text-align: justify;
+        font-size: 1.5rem;
+    }
+
+    .habilits-logo {
+        height: 75px;
+        width: 75px;
+    }
+
+    .check-img {
+        display: none;
+    }
     footer h2 {
         font-size: 2rem;
     }
