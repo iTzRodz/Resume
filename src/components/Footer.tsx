@@ -13,14 +13,8 @@ function SocialLink({ href, label, iconSrc }: SocialLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex items-center justify-center rounded-lg transition-colors duration-200"
+      className="social-link-hover flex items-center justify-center rounded-lg"
       style={{ width: 44, height: 44 }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#2C2C3A'
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent'
-      }}
     >
       <img src={iconSrc} alt="" aria-hidden="true" width={24} height={24} style={{ width: 24, height: 24 }} />
     </a>
@@ -48,14 +42,8 @@ export default function Footer() {
 
             <a
               href="mailto:rodolfocarvalho.dev@gmail.com"
-              className="font-body inline-block transition-colors duration-200 mb-10"
+              className="link-accent font-body inline-block mb-10"
               style={{ fontSize: 18, color: '#6200FF' }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = '#7A1FFF'
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = '#6200FF'
-              }}
             >
               rodolfocarvalho.dev@gmail.com
             </a>
@@ -93,14 +81,8 @@ export default function Footer() {
                 href="https://github.com/iTzRodz/Resume"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-200"
+                className="link-accent"
                 style={{ color: '#6200FF' }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#7A1FFF'
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#6200FF'
-                }}
               >
                 here
               </a>

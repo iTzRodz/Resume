@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavbarScroll } from '../hooks/useNavbarScroll'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 
@@ -11,10 +11,14 @@ const NAV_LINKS = [
 
 const SPY_IDS = ['about', 'skills', 'experience', 'projects', 'contact']
 
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 export default function Navbar() {
-  const scrolled   = useNavbarScroll(80)
-  const activeId   = useScrollSpy(SPY_IDS)
-  const [open, setOpen] = useState(false)
+  const scrolled             = useNavbarScroll(80)
+  const activeId             = useScrollSpy(SPY_IDS)
+  const [open, setOpen]      = useState(false)
+  const hamburgerRef         = useRef<HTMLButtonElement>(null)
+  const drawerRef            = useRef<HTMLDivElement>(null)
 
   const isActive = (href: string) => {
     const id = href.replace('#', '')
@@ -22,7 +26,55 @@ export default function Navbar() {
     return activeId === id
   }
 
-  const handleLinkClick = () => setOpen(false)
+  const closeMenu = () => setOpen(false)
+
+  // Focus first item when drawer opens; return focus to hamburger when it closes
+  useEffect(() => {
+    if (open) {
+      const first = drawerRef.current?.querySelector<HTMLElement>(FOCUSABLE)
+      first?.focus()
+    } else {
+      hamburgerRef.current?.focus()
+    }
+  }, [open])
+
+  // Focus trap + Escape key inside mobile drawer
+  useEffect(() => {
+    if (!open) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeMenu()
+        return
+      }
+
+      if (e.key !== 'Tab') return
+
+      const drawer    = drawerRef.current
+      if (!drawer) return
+
+      const focusable = Array.from(drawer.querySelectorAll<HTMLElement>(FOCUSABLE))
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last  = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [open])
 
   return (
     <header
@@ -66,7 +118,7 @@ export default function Navbar() {
                     paddingBottom: 4,
                     borderBottom: active ? '2px solid #6200FF' : '2px solid transparent',
                   }}
-                  aria-current={active ? 'page' : undefined}
+                  aria-current={active ? 'location' : undefined}
                 >
                   {label}
                 </a>
@@ -77,6 +129,7 @@ export default function Navbar() {
 
         {/* Hamburger button (mobile) */}
         <button
+          ref={hamburgerRef}
           className="flex md:hidden flex-col justify-center items-center gap-1.5 w-10 h-10 rounded"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -108,36 +161,41 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile drawer */}
-      {open && (
-        <div
-          id="mobile-menu"
-          className="md:hidden absolute left-0 right-0 top-16 z-50 px-6 pb-6 pt-4"
-          style={{
-            background: 'rgba(19, 19, 26, 0.97)',
-            backdropFilter: 'blur(12px)',
-            borderBottom: '1px solid rgba(255,255,255,0.08)',
-          }}
-        >
-          <ul className="flex flex-col gap-4" role="list">
-            {NAV_LINKS.map(({ label, href }) => {
-              const active = isActive(href)
-              return (
-                <li key={href}>
-                  <a
-                    href={href}
-                    onClick={handleLinkClick}
-                    className="block font-body font-medium text-base py-2 transition-colors duration-200"
-                    style={{ color: active ? '#6200FF' : '#FFF2E7' }}
-                    aria-current={active ? 'page' : undefined}
-                  >
-                    {label}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      )}
+      <div
+        id="mobile-menu"
+        ref={drawerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className="md:hidden absolute left-0 right-0 top-16 z-50 px-6 pb-6 pt-4 transition-all duration-200"
+        style={{
+          background: 'rgba(19, 19, 26, 0.97)',
+          backdropFilter: 'blur(12px)',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          opacity: open ? 1 : 0,
+          pointerEvents: open ? 'auto' : 'none',
+          visibility: open ? 'visible' : 'hidden',
+        }}
+      >
+        <ul className="flex flex-col gap-4" role="list">
+          {NAV_LINKS.map(({ label, href }) => {
+            const active = isActive(href)
+            return (
+              <li key={href}>
+                <a
+                  href={href}
+                  onClick={closeMenu}
+                  className="block font-body font-medium text-base py-2 transition-colors duration-200"
+                  style={{ color: active ? '#6200FF' : '#FFF2E7' }}
+                  aria-current={active ? 'location' : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </header>
   )
 }

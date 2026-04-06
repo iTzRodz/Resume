@@ -15,7 +15,7 @@ function SkillCard({ skill, index, visible }: SkillCardProps) {
 
   return (
     <div
-      className={`skill-card group flex flex-col items-center justify-center gap-2 rounded-xl p-3 cursor-default transition-all duration-200 ease-out ${
+      className={`card-hover flex flex-col items-center justify-center gap-2 rounded-xl p-3 cursor-default ${
         visible ? 'skill-visible' : 'skill-hidden'
       }`}
       style={{
@@ -24,20 +24,6 @@ function SkillCard({ skill, index, visible }: SkillCardProps) {
         backgroundColor: '#23232F',
         border: '1px solid rgba(255,255,255,0.08)',
         animationDelay: visible ? `${delay}ms` : undefined,
-      }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLDivElement
-        el.style.transform = 'translateY(-4px)'
-        el.style.borderColor = 'rgba(98,0,255,0.30)'
-        el.style.boxShadow = '0 8px 24px rgba(98,0,255,0.10)'
-        el.style.backgroundColor = '#2C2C3A'
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLDivElement
-        el.style.transform = 'translateY(0)'
-        el.style.borderColor = 'rgba(255,255,255,0.08)'
-        el.style.boxShadow = 'none'
-        el.style.backgroundColor = '#23232F'
       }}
     >
       <img
@@ -57,10 +43,16 @@ function SkillCard({ skill, index, visible }: SkillCardProps) {
   )
 }
 
+// Pre-compute global index per skill to avoid side effects during render
+const skillsWithIndex = CATEGORIES.flatMap((cat) =>
+  skills.filter((s) => s.category === cat)
+).reduce<Map<string, number>>((acc, skill, i) => {
+  acc.set(skill.name, i)
+  return acc
+}, new Map())
+
 export default function SkillsSection() {
   const [ref, visible] = useReveal<HTMLDivElement>({ threshold: 0.1 })
-
-  let globalIndex = 0
 
   return (
     <section id="skills" className="py-24" style={{ backgroundColor: '#23232F' }}>
@@ -87,17 +79,14 @@ export default function SkillsSection() {
                     gap: 12,
                   }}
                 >
-                  {catSkills.map((skill) => {
-                    const idx = globalIndex++
-                    return (
-                      <SkillCard
-                        key={skill.name}
-                        skill={skill}
-                        index={idx}
-                        visible={visible}
-                      />
-                    )
-                  })}
+                  {catSkills.map((skill) => (
+                    <SkillCard
+                      key={skill.name}
+                      skill={skill}
+                      index={skillsWithIndex.get(skill.name) ?? 0}
+                      visible={visible}
+                    />
+                  ))}
                 </div>
               </div>
             )

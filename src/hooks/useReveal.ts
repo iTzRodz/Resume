@@ -11,9 +11,17 @@ export function useReveal<T extends HTMLElement>(
   const ref = useRef<T>(null)
   const [isVisible, setIsVisible] = useState(false)
 
+  // Serialize options to a stable string so the effect only re-runs
+  // if the actual values change, not just the object reference.
+  const optionsSerialized = JSON.stringify(options)
+
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
+    const parsedOptions: IntersectionObserverInit = optionsSerialized
+      ? JSON.parse(optionsSerialized)
+      : {}
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,12 +30,12 @@ export function useReveal<T extends HTMLElement>(
           observer.unobserve(el)
         }
       },
-      { threshold: 0.1, rootMargin: '-40px 0px', ...options }
+      { threshold: 0.1, rootMargin: '-40px 0px', ...parsedOptions }
     )
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [optionsSerialized])
 
   return [ref, isVisible]
 }

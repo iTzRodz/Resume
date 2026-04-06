@@ -84,6 +84,68 @@ a {
   animation: skill-in 0.4s ease-out forwards;
 }
 
+/* ── Interactive hover classes (CSS-only, no JS style mutation) ── */
+
+.card-hover {
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-border);
+  box-shadow: 0 8px 24px var(--color-accent-subtle);
+  background-color: var(--color-bg-elevated);
+}
+
+.project-card-hover {
+  transition: transform 0.25s ease-out, border-color 0.25s ease-out,
+    box-shadow 0.25s ease-out;
+}
+.project-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-border);
+  box-shadow: 0 12px 32px rgba(98, 0, 255, 0.12);
+}
+
+.btn-primary {
+  transition: background-color 0.2s ease-out, transform 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--color-accent-subtle);
+}
+
+.btn-secondary {
+  transition: border-color 0.2s ease-out, color 0.2s ease-out;
+}
+.btn-secondary:hover {
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent);
+}
+
+.link-accent {
+  transition: color 0.2s ease-out;
+}
+.link-accent:hover {
+  color: var(--color-accent-hover) !important;
+}
+
+.social-link-hover {
+  transition: background-color 0.2s ease-out;
+}
+.social-link-hover:hover {
+  background-color: var(--color-bg-elevated);
+}
+
+/* ── Focus ring — acessibilidade ── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

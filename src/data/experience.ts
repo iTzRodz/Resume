@@ -2,9 +2,15 @@ export interface Experience {
   id: string;
   title: string;
   company: string;
-  startDate: string; // YYYY-MM
+  startDate: string;    // format: "YYYY-MM"
+  /**
+   * Set to null while you're still at the company.
+   * The duration and period will be calculated automatically using today's date.
+   *
+   * When you leave, set it to the end date (e.g. "2025-06") and the
+   * counter will freeze at that value automatically — no other changes needed.
+   */
   endDate: string | null;
-  isCurrent: boolean;
   description: string;
   highlights?: string[];
 }
@@ -15,8 +21,7 @@ export const experience: Experience[] = [
     title: 'Junior Full Stack Developer',
     company: 'NoPing',
     startDate: '2023-08',
-    endDate: null,
-    isCurrent: true,
+    endDate: null, // still here — set to "YYYY-MM" when you leave
     description:
       'Full-stack developer contributing across frontend, backend, and deployment — from greenfield projects to legacy maintenance and the main website overhaul.',
     highlights: [
@@ -32,7 +37,6 @@ export const experience: Experience[] = [
     company: 'Associação Comercial e de Inovação de Marília',
     startDate: '2023-06',
     endDate: '2023-06',
-    isCurrent: false,
     description:
       'Joined the Development team to contribute to the creation of a new ERP for entities using Vue.js and Laravel. Worked on both front-end interfaces and back-end logic.',
   },
@@ -42,7 +46,6 @@ export const experience: Experience[] = [
     company: 'Associação Comercial e de Inovação de Marília',
     startDate: '2022-05',
     endDate: '2023-06',
-    isCurrent: false,
     description:
       'Developed features for an ERP system using Vue.js and Laravel. Gained experience with Git workflows and mentored new interns on the team.',
   },
@@ -52,7 +55,6 @@ export const experience: Experience[] = [
     company: 'Associação Comercial e de Inovação de Marília',
     startDate: '2021-12',
     endDate: '2022-05',
-    isCurrent: false,
     description:
       'Managed company infrastructure including computer and printer maintenance. Enhanced communication with clients and developed quick problem-solving skills.',
   },

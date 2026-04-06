@@ -7,7 +7,10 @@ import { useEffect, useState } from 'react'
 export function useScrollSpy(ids: string[]): string {
   const [activeId, setActiveId] = useState<string>('')
 
+  const serialized = ids.join(',')
+
   useEffect(() => {
+    const sectionIds = serialized.split(',')
     const observers: IntersectionObserver[] = []
 
     const handleIntersect =
@@ -19,7 +22,7 @@ export function useScrollSpy(ids: string[]): string {
         }
       }
 
-    ids.forEach((id) => {
+    sectionIds.forEach((id) => {
       const el = document.getElementById(id)
       if (!el) return
 
@@ -34,7 +37,7 @@ export function useScrollSpy(ids: string[]): string {
     return () => {
       observers.forEach((o) => o.disconnect())
     }
-  }, [ids])
+  }, [serialized])
 
   return activeId
 }

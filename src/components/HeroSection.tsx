@@ -58,7 +58,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-3 items-center md:items-start justify-center md:justify-start">
               <a
                 href="#projects"
-                className="flex items-center justify-center font-body font-medium transition-all duration-200 rounded"
+                className="btn-primary flex items-center justify-center font-body font-medium rounded"
                 style={{
                   height: 48,
                   paddingLeft: 24,
@@ -68,16 +68,6 @@ export default function HeroSection() {
                   fontSize: 15,
                   minWidth: 148,
                 }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLAnchorElement
-                  el.style.backgroundColor = '#7A1FFF'
-                  el.style.transform = 'translateY(-1px)'
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLAnchorElement
-                  el.style.backgroundColor = '#6200FF'
-                  el.style.transform = 'translateY(0)'
-                }}
               >
                 View Projects
               </a>
@@ -85,7 +75,7 @@ export default function HeroSection() {
               <a
                 href="/assets/cv.pdf"
                 download
-                className="flex items-center justify-center font-body font-medium transition-all duration-200 rounded"
+                className="btn-secondary flex items-center justify-center font-body font-medium rounded"
                 style={{
                   height: 48,
                   paddingLeft: 24,
@@ -94,14 +84,6 @@ export default function HeroSection() {
                   color: '#FFF2E7',
                   fontSize: 15,
                   minWidth: 148,
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLAnchorElement
-                  el.style.borderColor = '#6200FF'
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLAnchorElement
-                  el.style.borderColor = 'rgba(98,0,255,0.30)'
                 }}
               >
                 Download CV

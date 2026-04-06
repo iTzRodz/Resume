@@ -44,22 +44,10 @@ interface ProjectCardProps {
 function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article
-      className="flex flex-col rounded-2xl overflow-hidden transition-all duration-200 ease-out"
+      className="project-card-hover flex flex-col rounded-2xl overflow-hidden"
       style={{
         backgroundColor: '#23232F',
         border: '1px solid rgba(255,255,255,0.08)',
-      }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLElement
-        el.style.transform = 'translateY(-4px)'
-        el.style.boxShadow = '0 12px 32px rgba(98,0,255,0.12)'
-        el.style.borderColor = 'rgba(98,0,255,0.30)'
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLElement
-        el.style.transform = 'translateY(0)'
-        el.style.boxShadow = 'none'
-        el.style.borderColor = 'rgba(255,255,255,0.08)'
       }}
     >
       {/* Thumbnail */}
@@ -71,7 +59,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         {project.thumbnail ? (
           <img
             src={project.thumbnail}
-            alt=""
+            alt={`${project.name} preview`}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -129,18 +117,8 @@ function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 font-body font-medium transition-colors duration-200"
-              style={{
-                fontSize: 14,
-                color: '#B8B0A8',
-                minHeight: 44,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = '#FFF2E7'
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = '#B8B0A8'
-              }}
+              className="link-accent flex items-center gap-2 font-body font-medium"
+              style={{ fontSize: 14, color: '#B8B0A8', minHeight: 44 }}
               aria-label={`${project.name} source code on GitHub`}
             >
               <GitHubIcon />
@@ -153,18 +131,8 @@ function ProjectCard({ project }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 font-body font-medium transition-colors duration-200"
-              style={{
-                fontSize: 14,
-                color: '#B8B0A8',
-                minHeight: 44,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = '#FFF2E7'
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = '#B8B0A8'
-              }}
+              className="link-accent flex items-center gap-2 font-body font-medium"
+              style={{ fontSize: 14, color: '#B8B0A8', minHeight: 44 }}
               aria-label={`${project.name} live demo`}
             >
               <ExternalLinkIcon />

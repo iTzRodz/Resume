@@ -11,7 +11,9 @@ interface TimelineEntryProps {
 function TimelineEntry({ entry, isLast }: TimelineEntryProps) {
   const [expanded, setExpanded] = useState(false)
 
-  const period = entry.isCurrent
+  const isCurrent = entry.endDate === null
+
+  const period = isCurrent
     ? `${formatMonthYear(entry.startDate)} — Present`
     : `${formatMonthYear(entry.startDate)} — ${formatMonthYear(entry.endDate!)}`
 
@@ -26,7 +28,7 @@ function TimelineEntry({ entry, isLast }: TimelineEntryProps) {
           style={{
             width: 12,
             height: 12,
-            backgroundColor: entry.isCurrent ? '#6200FF' : 'transparent',
+            backgroundColor: isCurrent ? '#6200FF' : 'transparent',
             border: '2px solid #6200FF',
           }}
         />
